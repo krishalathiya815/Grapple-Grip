@@ -4,16 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
+  - StopGrapple
+  - Win
+  - Lock
+  - Button
+  - DestroyObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Grapple
-  - 
+  - GrappleSurface
+  - stopGrappleLayer
   - 
   - 
   - 
