@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Restart : MonoBehaviour
+public class RestartButton : MonoBehaviour
 {
-    public static Restart Instance;
+    public static RestartButton Instance;
     public Transform[] objects;
     public Vector3[] initialPositions;
     public Button retryButton;
+
 
     private void Awake()
     {
@@ -15,10 +16,9 @@ public class Restart : MonoBehaviour
         for (int i = 0; i < objects.Length; i++)
         {
             initialPositions[i] = objects[i].position;
-
         }
     }
-        void Start()
+    void Start()
     { 
         retryButton.onClick.AddListener(Retry);
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class hand : MonoBehaviour
+public class GrappleManager : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class playerMovement : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class playerMovement : MonoBehaviour
     public LayerMask grappleLayer;
     public bool isGrappling = false;
 
+    /*private float moveDirection = 0f;
+    public void SetMoveDirection(float dir)
+    {
+        moveDirection = dir;
+    }*/
 
     public Rigidbody2D rb;
     private Vector2 grapplePoint;
@@ -45,6 +51,12 @@ public class playerMovement : MonoBehaviour
     {
         float moveInput = Input.GetAxis("Horizontal");
 
+        /*// If using buttons, override input
+        if (moveDirection != 0f)
+        {
+            moveInput = moveDirection;
+        }*/
+
         if (!isGrappling)
         {
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
@@ -67,7 +79,6 @@ public class playerMovement : MonoBehaviour
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, grapplePoint);
         }
-    
     }
 
     public void StartGrapple()
@@ -114,5 +125,14 @@ public class playerMovement : MonoBehaviour
             HomePanel.Instance.OnCollision();
             StopGrapple();
         }
+    }
+
+    // For UI button
+    public void OnGrappleButtonPressed()
+    {
+        if (!isGrappling)
+        {
+            StartGrapple();
+        }  
     }
 }
